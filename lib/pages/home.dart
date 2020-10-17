@@ -15,6 +15,10 @@ class _HomePageState extends State<HomePage> {
         appBar: new AppBar(
           title: Text("News"),
         ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.ac_unit_outlined),
+          onPressed: () => print(newsP.news.length),
+        ),
         body: ListView.builder(
           itemCount: newsP.news.length,
           itemBuilder: (BuildContext context, int index) {

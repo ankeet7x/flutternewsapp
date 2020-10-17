@@ -31,7 +31,7 @@ class ApiHelper extends ChangeNotifier {
 
   Future<void> fetchNews() async {
     String url =
-        'http://newsapi.org/v2/everything?q=bitcoin&from=2020-09-16&sortBy=publishedAt&apiKey=15a3d32b9ee24dd29643f63623df506f';
+        'http://newsapi.org/v2/everything?q=bitcoin&from=2020-09-17&sortBy=publishedAt&apiKey=15a3d32b9ee24dd29643f63623df506f';
 
     var response = await http.get(url);
 
@@ -39,14 +39,12 @@ class ApiHelper extends ChangeNotifier {
 
     if (jsonData['status'] == "ok") {
       jsonData["articles"].forEach((element) {
-        if (element['urlToImage'] != null && element['description'] != null) {
-          News article = News(
-            title: element['title'],
-            author: element['author'],
-            description: element['description'],
-          );
-          news.add(article);
-        }
+        News article = News(
+          title: element['title'],
+          author: element['author'],
+          description: element['description'],
+        );
+        news.add(article);
       });
     }
   }
