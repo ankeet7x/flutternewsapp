@@ -15,7 +15,14 @@ class _NewsPageState extends State<NewsPage> {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: [Text(newsP.news[newsP.currentIndex].title)],
+          children: [
+            Text(newsP.news[newsP.currentIndex].title),
+            Text(newsP.news[newsP.currentIndex].author),
+            SizedBox(
+              height: 10,
+            ),
+            Text(newsP.news[newsP.currentIndex].description)
+          ],
         ),
       ),
     );
