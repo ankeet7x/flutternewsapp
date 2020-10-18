@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutternews/services/apihelper.dart';
 import 'package:provider/provider.dart';
 
+import 'newspage.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -35,6 +37,8 @@ class _HomePageState extends State<HomePage> {
             return ListTile(
                 onTap: () {
                   print(newsP.news[index].title);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => NewsPage()));
                 },
                 title: (newsP.news.length != 0)
                     ? Text(newsP.news[index].title)
