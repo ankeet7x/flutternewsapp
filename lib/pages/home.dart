@@ -36,7 +36,11 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
                 onTap: () {
+                  setState(() {
+                    newsP.setCurrentIndex(index);
+                  });
                   print(newsP.news[index].title);
+                  print(newsP.currentIndex);
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => NewsPage()));
                 },

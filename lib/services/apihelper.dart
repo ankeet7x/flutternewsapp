@@ -27,7 +27,12 @@ class ApiHelper extends ChangeNotifier {
     this.fetchNews();
   }
 
+  int currentIndex;
   List<News> news = [];
+
+  setCurrentIndex(int index) {
+    currentIndex = index;
+  }
 
   Future<void> fetchNews() async {
     String url =

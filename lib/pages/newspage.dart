@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutternews/services/apihelper.dart';
+import 'package:provider/provider.dart';
 
 class NewsPage extends StatefulWidget {
   @override
@@ -8,11 +10,12 @@ class NewsPage extends StatefulWidget {
 class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
+    final newsP = Provider.of<ApiHelper>(context);
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [Text(newsP.news[newsP.currentIndex].title)],
         ),
       ),
     );
