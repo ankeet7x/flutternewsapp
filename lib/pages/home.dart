@@ -11,21 +11,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final newsP = Provider.of<ApiHelper>(context);
+    // bool gotNews = false;
+    // if (newsP.news.length != null){
+    //   setState(() {
+
+    //   });
+    // }
+
     return Scaffold(
         appBar: new AppBar(
           title: Text("News"),
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.ac_unit_outlined),
-          onPressed: () => print(newsP.news.length),
+          onPressed: () {
+            // newsP.fetchNews();
+            print(newsP.news.length);
+          },
         ),
         body: ListView.builder(
           itemCount: newsP.news.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-              title: Text(newsP.news[index].title),
-              subtitle: Text(newsP.news[index].author),
-            );
+                onTap: () {
+                  print(newsP.news[index].title);
+                },
+                title: (newsP.news.length != 0)
+                    ? Text(newsP.news[index].title)
+                    : null,
+                subtitle: (newsP.news.length != 0)
+                    ? Text(newsP.news[index].title)
+                    : null);
           },
         ));
   }
